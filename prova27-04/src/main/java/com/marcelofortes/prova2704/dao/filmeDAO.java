@@ -16,7 +16,7 @@ public class filmeDAO {
     
     //CRIA TABELA
     public void FilmeTable(){
-        String sql = "create table if not exists filmes(id int primary key auto_increment, idSessao varchar(20) foreing key references sessao(idSessao), nome varchar(20) not null, faixaEtaria int not null;";
+        String sql = "create table if not exists filmes(id int primary key auto_increment, idSessao varchar(20), nome varchar(20) not null, faixaEtaria int not null, CONSTRAINT fk_idSessao foreign key (idSessao) references sessao(id);";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.execute();
@@ -28,7 +28,7 @@ public class filmeDAO {
     }
 
     //CRIA ENTIDADE
-    public void CriaFilme(filmeModel filmes){
+    public void addFilme(filmeModel filmes){
         String sql = "insert into filmes(nome, idSessao, faixaEtaria) values (?,?,?);";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);

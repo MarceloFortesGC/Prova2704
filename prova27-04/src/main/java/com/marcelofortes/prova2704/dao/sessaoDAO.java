@@ -27,7 +27,7 @@ public class sessaoDAO {
 
     
     //CRIA ENTIDADE
-    public void CriaFilme(sessaoModel sessao){
+    public void addSessao(sessaoModel sessao){
         String sql = "insert into sessao(idSessao, local) values (?,?);";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -65,5 +65,24 @@ public class sessaoDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public sessaoModel findById(int id) {
+        String sql = "select * from sessoes where idSessao = ?;";
+        try {
+          PreparedStatement statement = connection.prepareStatement(sql);
+          statement.setInt(1, id);
+          ResultSet resultSet = statement.executeQuery();
+    
+          sessaoModel sessao = new sessaoModel();
+          while (resultSet.next()) {
+            sessao.setId(resultSet.getInt("id"));
+            sessao.setIdSessao(resultSet.getString("idSessao"));
+            sessao.setLocal(resultSet.getString("local"));
+          }
+          return sessao;
+        } catch (SQLException e) {
+          throw new RuntimeException(e);
+        }
+      }
     
 }

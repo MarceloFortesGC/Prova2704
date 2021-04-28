@@ -2,7 +2,7 @@ package com.marcelofortes.prova2704.model;
 
 public class filmeModel {
     private int id;
-    private int idSessao;
+    private sessaoModel idSessao;
     private String nome;
     private int faixaEtaria;
 
@@ -10,24 +10,25 @@ public class filmeModel {
 
     public filmeModel() {
     }
-    
-    public filmeModel(int idSessao, String nome, int faixaEtaria) {
+
+    public filmeModel(sessaoModel idSessao, String nome, int faixaEtaria) {
         this.idSessao = idSessao;
         this.nome = nome;
         this.faixaEtaria = faixaEtaria;
     }
+
     
-    public int getIdSessao() {
-        return idSessao;
-    }
-    public void setIdSessao(int idSessao) {
-        this.idSessao = idSessao;
-    }
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
+    }
+    public sessaoModel getIdSessao() {
+        return idSessao;
+    }
+    public void setIdSessao(sessaoModel idSessao) {
+        this.idSessao = idSessao;
     }
     public String getNome() {
         return nome;
@@ -41,5 +42,7 @@ public class filmeModel {
     public void setFaixaEtaria(int faixaEtaria) {
         this.faixaEtaria = faixaEtaria;
     }
+
+
     
 }
