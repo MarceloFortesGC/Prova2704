@@ -2,7 +2,7 @@ package com.marcelofortes.prova2704.model;
 
 public class sessaoModel {
     private int id;
-    private String idSessao;
+    private String idSessao; //Mudar para int
     private String local;
 
     

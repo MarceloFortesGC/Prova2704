@@ -1,0 +1,9 @@
+com\marcelofortes\prova2704\dao\sessaoDAO.class
+com\marcelofortes\prova2704\controller\filmeController.class
+com\marcelofortes\prova2704\Resources.class
+com\marcelofortes\prova2704\model\filmeModel.class
+com\marcelofortes\prova2704\Configuration.class
+com\marcelofortes\prova2704\factory\connectionFactory.class
+com\marcelofortes\prova2704\dao\filmeDAO.class
+com\marcelofortes\prova2704\model\sessaoModel.class
+com\marcelofortes\prova2704\controller\sessaoController.class

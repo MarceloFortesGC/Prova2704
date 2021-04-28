@@ -7,14 +7,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.marcelofortes.prova2704.factory.connectionFactory;
 import com.marcelofortes.prova2704.model.sessaoModel;
 
 
 public class sessaoDAO {
     public Connection connection;
     
+    public sessaoDAO() {
+        this.connection = new connectionFactory().getConnection();
+        SessaoTable();
+    }
+
+
     public void SessaoTable(){
-        String sql = "create table if not exists sessao(id int primary key auto_increment, idSessao varchar(20), local varchar(20) not null;";
+        String sql = "create table if not exists sessao(id int primary key auto_increment, idSessao varchar(20), local varchar(20) not null);";
         try{
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.execute();
@@ -66,11 +73,11 @@ public class sessaoDAO {
         }
     }
 
-    public sessaoModel findById(int id) {
+    public sessaoModel findById(String idSessao) {
         String sql = "select * from sessoes where idSessao = ?;";
         try {
           PreparedStatement statement = connection.prepareStatement(sql);
-          statement.setInt(1, id);
+          statement.setString(1, idSessao);
           ResultSet resultSet = statement.executeQuery();
     
           sessaoModel sessao = new sessaoModel();
